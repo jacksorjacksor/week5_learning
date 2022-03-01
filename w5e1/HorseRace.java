@@ -9,7 +9,8 @@ public class HorseRace {
     public static void main(String[] args) {
 
         Map<Integer, Integer> allOutcomes = new HashMap<Integer, Integer>();
-
+        // Um this is totally wrong and needs to be first horse to 1k. Unsure how I
+        // misread that!
         for (int i = 0; i < 10; i++) {
             HorseThread myLovelyHorse = new HorseThread(i);
             myLovelyHorse.run();

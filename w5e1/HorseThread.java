@@ -17,7 +17,7 @@ public class HorseThread extends Thread {
 
     // Run
     public void run() {
-        for (int i = 0; i < 10; i++) {
+        while (position < 1000) {
 
             try {
                 Random myRandom = new Random();
