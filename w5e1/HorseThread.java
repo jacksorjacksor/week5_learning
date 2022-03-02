@@ -8,22 +8,24 @@ import java.util.Random;
 public class HorseThread extends Thread {
     // Variables
     Integer horseID;
+    Integer numberOfSteps = 0;
     Integer position = 0;
+    Random myRandom = new Random();
 
     // Constructor
     public HorseThread(Integer horseID) {
         this.horseID = horseID;
     }
 
-    // Run
+    // METHODS:
+    // - run
     public void run() {
         while (position < 1000) {
-
+            numberOfSteps++;
             try {
-                Random myRandom = new Random();
-                int val = myRandom.nextInt(6) + 1;
+                Integer val = myRandom.nextInt(6) + 1;
                 position += val;
-                Thread.sleep(10);
+                Thread.sleep(1);
 
             } catch (InterruptedException e) {
                 System.out.println("error:" + e);
@@ -31,9 +33,9 @@ public class HorseThread extends Thread {
         }
     }
 
-    // Get
-    public int getPosition() {
-        return position;
+    // - get
+    public int getNumberOfSteps() {
+        return numberOfSteps;
     }
 
 }

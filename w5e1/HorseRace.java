@@ -9,27 +9,27 @@ public class HorseRace {
     public static void main(String[] args) {
 
         Map<Integer, Integer> allOutcomes = new HashMap<Integer, Integer>();
-        // Um this is totally wrong and needs to be first horse to 1k. Unsure how I
-        // misread that!
+
+        // This works but still prints all IDs in order
         for (int i = 0; i < 10; i++) {
             HorseThread myLovelyHorse = new HorseThread(i);
             myLovelyHorse.run();
-            Integer outcome = myLovelyHorse.getPosition();
+            Integer outcome = myLovelyHorse.getNumberOfSteps();
+            System.out.println("Horse finished: number " + i + " in " + outcome + " steps!");
             allOutcomes.put(i, outcome);
         }
 
         // Get highest value
         ArrayList<Integer> outcomes = new ArrayList<Integer>(allOutcomes.values());
-        Integer furthestDistance = Collections.max(outcomes);
+        Integer minimumSteps = Collections.min(outcomes);
 
         ArrayList<Integer> winningHorses = new ArrayList<Integer>();
         // Get winner
         for (var entry : allOutcomes.entrySet()) {
-            if (entry.getValue() == furthestDistance) {
+            if (entry.getValue() == minimumSteps) {
                 winningHorses.add(entry.getKey());
             }
         }
-        System.out.println("Winning horses: " + winningHorses.toString());
-
+        System.out.println("Winning horse: " + winningHorses + " in " + minimumSteps + " steps!!!");
     }
 }
