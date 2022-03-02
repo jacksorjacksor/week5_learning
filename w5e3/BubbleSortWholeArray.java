@@ -9,12 +9,7 @@ public class BubbleSortWholeArray {
     private static Integer[] myArray = new Integer[TOTAL_NUMBER_OF_INTEGERS];
     private static Random myRandomGen = new Random();
 
-    public static void main(String[] args) {
-        // Create array
-        for (int i = 0; i < TOTAL_NUMBER_OF_INTEGERS; i++) {
-            myArray[i] = myRandomGen.nextInt(TOTAL_NUMBER_OF_INTEGERS);
-        }
-
+    private static Integer[] bubbleSort(Integer[] myArray) {
         int temp;
         for (int i = 0; i < myArray.length; i++) {
             for (int j = 0; j < myArray.length - 1; j++) {
@@ -25,10 +20,18 @@ public class BubbleSortWholeArray {
                 }
             }
         }
-        System.out.println(Arrays.toString(myArray));
+        return myArray;
+    }
 
-        // Sort the array
-        // BUBBLE SORT ALGORITHM
+    public static void main(String[] args) {
+        // Create array
+        for (int i = 0; i < TOTAL_NUMBER_OF_INTEGERS; i++) {
+            myArray[i] = myRandomGen.nextInt(TOTAL_NUMBER_OF_INTEGERS);
+        }
+
+        myArray = bubbleSort(myArray);
+
+        System.out.println(Arrays.toString(myArray));
     }
 }
 
