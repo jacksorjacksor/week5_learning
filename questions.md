@@ -1,0 +1,1 @@
+- Is there any time we should use Thread Class instead of Runnable Interface?
