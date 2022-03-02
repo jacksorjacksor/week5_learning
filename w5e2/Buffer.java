@@ -11,7 +11,6 @@ import java.util.Arrays;
 // Write a Java program to simulate a buffer used with:
 // ---- a producer (which produces the data and puts in the buffer) 
 // ---- a consumer (which uses the data from the buffer)
-// 
 
 // You should implement a class Buffer that represents a buffer. 
 // The buffer can be implemented using an int array with a fixed number (called BUFFER_SIZE) of spaces.
@@ -30,6 +29,8 @@ public class Buffer {
     // Syntax for making arrays of ints:
     Integer myNewArray[] = new Integer[BUFFER_SIZE];
 
+    // METHODS
+    // - PRIVATE
     private void setHead() {
         boolean hasHeadBeenSet = false;
 
@@ -60,22 +61,26 @@ public class Buffer {
         System.out.println("Number of items in buffer: " + count);
     }
 
+    // - PUBLIC
     public Integer get() {
+        // gets the value nearest to the head
         setHead();
         if (head == null) {
             System.err.println("Nothing in there!");
         }
-        Integer indexToGet = (head) % BUFFER_SIZE;
-        return myNewArray[indexToGet];
+        Integer valueToReturn = myNewArray[head];
+        myNewArray[head] = null;
+        return valueToReturn;
     }
 
     public void put(int value) {
+        // puts the value at the end of the buffer
+        // (as far away from the head as possible)
         setHead();
-        myNewArray[head] = value;
+        myNewArray[count] = value;
 
         System.out.println("index to put in: " + head);
         System.out.println("Array: " + Arrays.toString(myNewArray));
-
     }
 
 }

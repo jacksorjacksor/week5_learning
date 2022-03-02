@@ -2,9 +2,6 @@ package w5e1;
 
 import java.util.Random;
 
-/**
- * HorseThread
- */
 public class HorseThread extends Thread {
     // Variables
     Integer horseID;
