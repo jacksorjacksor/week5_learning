@@ -1,6 +1,6 @@
 package w5e2;
 
-import java.lang.reflect.Array;
+import java.util.Arrays;
 
 // QUESTION:
 // Buffer is often used to store data temporarily, which is useful to 
@@ -42,9 +42,22 @@ public class Buffer {
                 break;
             }
         }
+        // Counts number of items present
+        setCount();
         if (!hasHeadBeenSet) {
             System.out.println("Buffer is full");
         }
+    }
+
+    private void setCount() {
+        Integer newCount = 0;
+        for (int i = 0; i < myNewArray.length; i++) {
+            if (myNewArray[i] != null) {
+                newCount++;
+            }
+        }
+        count = newCount;
+        System.out.println("Number of items in buffer: " + count);
     }
 
     public Integer get() {
@@ -52,18 +65,17 @@ public class Buffer {
         if (head == null) {
             System.err.println("Nothing in there!");
         }
-        Integer indexToGet = (head - 1) % BUFFER_SIZE;
+        Integer indexToGet = (head) % BUFFER_SIZE;
         return myNewArray[indexToGet];
     }
 
     public void put(int value) {
         setHead();
-
         myNewArray[head] = value;
 
-        // for (Integer integer : myNewArray) {
-        // System.out.println(integer);
-        // }
+        System.out.println("index to put in: " + head);
+        System.out.println("Array: " + Arrays.toString(myNewArray));
+
     }
 
 }
