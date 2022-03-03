@@ -20,8 +20,7 @@ public class HorseThread extends Thread {
         while (position < 1000) {
             numberOfSteps++;
             try {
-                Integer val = myRandom.nextInt(6) + 1;
-                position += val;
+                position += myRandom.nextInt(6) + 1;
                 Thread.sleep(1);
 
             } catch (InterruptedException e) {

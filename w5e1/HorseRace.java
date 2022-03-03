@@ -19,7 +19,7 @@ public class HorseRace {
             allOutcomes.put(i, outcome);
         }
 
-        // Get highest value
+        // Get minimum steps
         ArrayList<Integer> outcomes = new ArrayList<Integer>(allOutcomes.values());
         Integer minimumSteps = Collections.min(outcomes);
 
@@ -30,6 +30,7 @@ public class HorseRace {
                 winningHorses.add(entry.getKey());
             }
         }
+
         System.out.println("Winning horse: " + winningHorses + " in " + minimumSteps + " steps!!!");
     }
 }
